@@ -50,6 +50,7 @@ group :development, :test do
   gem 'headless'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'phantomjs'
 
 
 
