@@ -8,9 +8,9 @@ RSpec.feature "Visit single post", :type => :feature do
     post
     visit root_path
     page.find(".single-post-card").click
-    expect(page).to have_selector('body .modal')
+    expect(page).to have_css('body .modal')
     page.find('.interested a').click
-    expect(page).to have_selector('#single-post-content p', text: post.content)
+    expect(page).to have_css('#single-post-content p', text: post.content)
   end
 
 end
