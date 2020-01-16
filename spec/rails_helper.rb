@@ -11,7 +11,6 @@ require 'rspec/rails'
   require 'capybara/poltergeist'
   require 'factory_bot_rails'
   require 'capybara/rspec'
-  require 'phantomjs'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
