@@ -22,4 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-TO geia einai gia tous adynamous
+TO geia
