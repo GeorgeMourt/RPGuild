@@ -14,6 +14,15 @@ resources :posts do
   end
 end
 
+namespace :private do 
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+  end
+  resources :messages, only: [:index, :create]
+end
+
 devise_scope :user do
   get 'signup', to: 'devise/registrations#new'
 end
