@@ -11,4 +11,6 @@ RSpec.describe Private::Conversation, type: :model do
       expect(conversation.count).to eq 1
     end
   end
+
+  
 end

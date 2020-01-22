@@ -14,7 +14,7 @@ RSpec.feature "Contact user", :type => :feature do
       visit post_path(post)
       expect(page).to have_selector('.contact-user form')
 
-      fill_in('message_body', with: 'a' * 20)
+      fill_in('message_body', with: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
       find('form .send-message-to-user').trigger('click')
 
       expect(page).not_to have_selector('.contact-user form')

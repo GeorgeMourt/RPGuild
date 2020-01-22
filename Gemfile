@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+
 gem 'bootstrap_form'
 gem 'devise'
 gem 'jquery-rails'
@@ -71,3 +73,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker'
 gem 'will_paginate', '~> 3.1.0'
+gem 'gon'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
