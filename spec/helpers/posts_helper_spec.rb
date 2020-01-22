@@ -18,86 +18,86 @@ RSpec.describe PostsHelper, :type => :helper do
     end
   end
 
-context '#contact_user_partial_path' do
-  before(:each) do
-    @current_user = create(:user, id: 1)
-    helper.stub(:current_user).and_return(@current_user)
+  context '#contact_user_partial_path' do
+    before(:each) do
+      @current_user = create(:user, id: 1)
+      helper.stub(:current_user).and_return(@current_user)
+    end
+
+    it "returns a contact_user partial's path" do
+      helper.stub(:user_signed_in?).and_return(true)
+      assign(:post, create(:post, user_id: create(:user, id: 2).id))
+      expect(helper.contact_user_partial_path).to(
+        eq 'posts/show/contact_user' 
+      )
+    end
+
+    it "returns an empty partial's path" do
+      helper.stub(:user_signed_in?).and_return(true)
+      assign(:post, create(:post, user_id: @current_user.id))
+  
+      expect(helper.contact_user_partial_path).to(
+        eq 'shared/empty_partial'
+      )
+    end
+
+    it "returns an empty partial's path" do
+      helper.stub(:user_signed_in?).and_return(false)
+      expect(helper.contact_user_partial_path).to(
+        eq 'posts/show/login_required'
+      )
+    end
   end
 
-  it "returns a contact_user partial's path" do
-    helper.stub(:user_signed_in?).and_return(true)
-    assign(:post, create(:post, user_id: create(:user, id: 2).id))
-    expect(helper.contact_user_partial_path).to(
-      eq 'posts/show/contact_user' 
-    )
+
+
+
+  context '#contact_user_partial_path' do
+    before(:each) do
+      @current_user = create(:user, id: 1)
+      helper.stub(:current_user).and_return(@current_user)
+    end
+
+    it "returns a contact_user partial's path" do
+      helper.stub(:user_signed_in?).and_return(true)
+      assign(:post, create(:post, user_id: create(:user, id: 2).id))
+      expect(helper.contact_user_partial_path).to(
+        eq 'posts/show/contact_user' 
+      )
+   end
+
+    it "returns an empty partial's path" do
+      helper.stub(:user_signed_in?).and_return(true)
+      assign(:post, create(:post, user_id: @current_user.id))
+  
+      expect(helper.contact_user_partial_path).to(
+        eq 'shared/empty_partial'
+      )
+    end
+
+    it "returns an empty partial's path" do
+      helper.stub(:user_signed_in?).and_return(false)
+      expect(helper.contact_user_partial_path).to(
+        eq 'posts/show/login_required'
+      )
+    end
   end
 
-  it "returns an empty partial's path" do
-    helper.stub(:user_signed_in?).and_return(true)
-    assign(:post, create(:post, user_id: @current_user.id))
+  context '#leave_message_partial_path' do
+    it "returns an already_in_touch partial's path" do
+      assign('message_has_been_sent', true)
+      expect(helper.leave_message_partial_path).to(
+        eq 'posts/show/contact_user/already_in_touch'
+      )
+    end
 
-    expect(helper.contact_user_partial_path).to(
-      eq 'shared/empty_partial'
-    )
+    it "returns an already_in_touch partial's path" do
+      assign('message_has_been_sent', false)
+      expect(helper.leave_message_partial_path).to(
+        eq 'posts/show/contact_user/message_form'
+      )
+    end
   end
-
-  it "returns an empty partial's path" do
-    helper.stub(:user_signed_in?).and_return(false)
-    expect(helper.contact_user_partial_path).to(
-      eq 'posts/show/login_required'
-    )
-  end
-end
-
-
-
-
-context '#contact_user_partial_path' do
-  before(:each) do
-    @current_user = create(:user, id: 1)
-    helper.stub(:current_user).and_return(@current_user)
-  end
-
-  it "returns a contact_user partial's path" do
-    helper.stub(:user_signed_in?).and_return(true)
-    assign(:post, create(:post, user_id: create(:user, id: 2).id))
-    expect(helper.contact_user_partial_path).to(
-      eq 'posts/show/contact_user' 
-    )
-  end
-
-  it "returns an empty partial's path" do
-    helper.stub(:user_signed_in?).and_return(true)
-    assign(:post, create(:post, user_id: @current_user.id))
-
-    expect(helper.contact_user_partial_path).to(
-      eq 'shared/empty_partial'
-    )
-  end
-
-  it "returns an empty partial's path" do
-    helper.stub(:user_signed_in?).and_return(false)
-    expect(helper.contact_user_partial_path).to(
-      eq 'posts/show/login_required'
-    )
-  end
-end
-
-context '#leave_message_partial_path' do
-  it "returns an already_in_touch partial's path" do
-    assign('message_has_been_sent', true)
-    expect(helper.leave_message_partial_path).to(
-      eq 'posts/show/contact_user/already_in_touch'
-    )
-  end
-
-  it "returns an already_in_touch partial's path" do
-    assign('message_has_been_sent', false)
-    expect(helper.leave_message_partial_path).to(
-      eq 'posts/show/contact_user/message_form'
-    )
-  end
-end
 
   context '#all_categories_button_partial_path' do
     it "returns an all_selected partial's path" do
@@ -148,20 +148,20 @@ end
 	  end
   end
   context '#update_pagination_partial_path' do
-  it "returns an update_pagination partial's path" do
-    posts = double('posts', :next_page => 2)
-    assign(:posts, posts)
-    expect(helper.update_pagination_partial_path).to(
-      eq 'posts/posts_pagination_page/update_pagination'
-    )
-  end
+    it "returns an update_pagination partial's path" do
+      posts = double('posts', :next_page => 2)
+      assign(:posts, posts)
+      expect(helper.update_pagination_partial_path).to(
+        eq 'posts/posts_pagination_page/update_pagination'
+      )
+    end
 
-  it "returns a remove_pagination partial's path" do
-    posts = double('posts', :next_page => nil)
-    assign(:posts, posts)
-    expect(helper.update_pagination_partial_path).to(
-      eq 'posts/posts_pagination_page/remove_pagination'
-    )
-  end
+    it "returns a remove_pagination partial's path" do
+      posts = double('posts', :next_page => nil)
+      assign(:posts, posts)
+      expect(helper.update_pagination_partial_path).to(
+        eq 'posts/posts_pagination_page/remove_pagination'
+      )
+    end
   end
 end
