@@ -298,6 +298,8 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
 
   config.omniauth :twitter, Rails.application.secrets.fetch(:twitter_api_public), Rails.application.secrets.fetch(:twitter_api_secret)
+  config.omniauth :facebook, Rails.application.secrets.fetch(:facebook_public_id), Rails.application.secrets.fetch(:facebook_secret_id)
+  config.omniauth :github, Rails.application.secrets.fetch(:github_client_public), Rails.application.secrets.fetch(:github_client_secret)
 
   
 end

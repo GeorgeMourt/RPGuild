@@ -76,5 +76,7 @@ gem 'will_paginate', '~> 3.1.0'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
 
 
