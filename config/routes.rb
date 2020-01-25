@@ -22,4 +22,13 @@ end
 #get :omniauth_callbacks , to: 'omniauth_callbacks#twitter'
 #get 'users/auth/:provider/callback', to: 'sessions#create'
 
+namespace :private do 
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+  end
+  resources :messages, only: [:index, :create]
+end
+
 end
