@@ -1,6 +1,6 @@
-FactoryBot.define do
+FactoryGirl.define do 
   factory :private_message, class: 'Private::Message' do
-    body { "aaaaaaaaaaaaaaaaaaaa" }
+    body 'a' * 20
     association :conversation, factory: :private_conversation
     user
   end

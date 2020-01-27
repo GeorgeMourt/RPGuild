@@ -1,8 +1,7 @@
-FactoryBot.define do
+FactoryGirl.define do 
   factory :post do
-    
-    title {"aaaaaaaa"}
-    content {"aaaaaaaa"}
+    title 'a' * 20
+    content 'a' * 20
     user
     category
   end

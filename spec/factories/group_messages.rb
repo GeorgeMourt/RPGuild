@@ -1,6 +1,6 @@
-FactoryBot.define do 
+FactoryGirl.define do 
   factory :group_message, class: 'Group::Message' do
-    content 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+    content 'a' * 20
     association :conversation, factory: :group_conversation
     user
   end

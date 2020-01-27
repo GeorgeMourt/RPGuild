@@ -1,4 +1,4 @@
-FactoryBot.define do
+FactoryGirl.define do
   factory :group_conversation, class: 'Group::Conversation' do
     
   end
