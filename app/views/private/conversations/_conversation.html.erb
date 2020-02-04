@@ -1,6 +1,6 @@
 <% @recipient = private_conv_recipient(conversation) %>
-<% @is_messenger = false %>
 <% @contact = get_contact_record(@recipient) %>
+<% @is_messenger = false %>
 <li class="conversation-window" 
     id="pc<%= conversation.id %>" 
     data-pconversation-user-name="<%= @recipient.name %>" 

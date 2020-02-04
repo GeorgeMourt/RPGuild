@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', function() { 
+$(document).on('turbolinks:load', function() { 
     chat_windows_count = $('.conversation-window').length;
     // if the last visible chat window is not set and conversation windows exist
     // set the last_visible_chat_window variable

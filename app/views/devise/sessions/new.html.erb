@@ -3,32 +3,32 @@
     <div class="col-sm-6 col-sm-offset-3">
       <h2 class="text-center">Log in</h2>
 
-<%= bootstrap_form_for(resource, 
-                       as: resource_name, 
-                       url: session_path(resource_name)) do |f| %>
+    <%= bootstrap_form_for(resource, 
+                        as: resource_name, 
+                        url: session_path(resource_name)) do |f| %>
 
-    <%= f.email_field :email, 
-                      autofocus: true, 
-                      class: 'form-control', 
-                      placeholder: 'email' %>
+      <%= f.email_field :email, 
+                        autofocus: true, 
+                        class: 'form-control', 
+                        placeholder: 'email' %>
 
-    <%= f.password_field  :password, 
-                          autocomplete: "off", 
-                          class: 'form-control',
-                          placeholder: 'password' %>
-
-
-  <% if devise_mapping.rememberable? -%>
-     <%= f.check_box :remember_me %>
-  <% end -%>
-
-   <%= f.submit "Log in", class: 'form-control login-button' %>
+      <%= f.password_field  :password, 
+                            autocomplete: "off", 
+                            class: 'form-control',
+                            placeholder: 'password' %>
 
 
-   <%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path, class: "btn bg-blue-500 text-white w-full block text-center" %><br />
-   <%= link_to "Sign in with Facebook",  user_facebook_omniauth_authorize_path, class: "btn bg-blue-500 text-white w-full block text-center" %><br />
-   <%= link_to "Sign in with Github", user_github_omniauth_authorize_path, class: "btn bg-blue-500 text-white w-full block text-center" %><br />
-<% end %>
+    <% if devise_mapping.rememberable? -%>
+      <%= f.check_box :remember_me %>
+    <% end -%>
+
+    <%= f.submit "Log in", class: 'form-control login-button' %>
+
+
+    <%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path, class: "btn btn-default" %><br />
+    <%= link_to "Sign in with Facebook",  user_facebook_omniauth_authorize_path, class: "btn btn-default" %><br />
+    <%= link_to "Sign in with Github", user_github_omniauth_authorize_path, class: "btn btn-default" %><br />
+    <% end %>
 
 
 

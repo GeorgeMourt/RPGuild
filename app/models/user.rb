@@ -7,7 +7,12 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
  
   has_many :private_messages, class_name: 'Private::Message'
-  has_many  :private_conversations, foreign_key: :sender_id, class_name: 'Private::Conversation'
+  has_many  :private_conversations, 
+	          foreign_key: :sender_id, 
+            class_name: 'Private::Conversation'
+            
+  has_many :group_messages, class_name: 'Group::Message'
+  has_and_belongs_to_many :group_conversations, class_name: 'Group::Conversation'
   
   has_many :contacts
   has_many :all_received_contact_requests,  
@@ -26,17 +31,18 @@ class User < ApplicationRecord
   has_many :pending_received_contact_requests, ->  { where(contacts: { accepted: false}) }, 
             through: :all_received_contact_requests, 
             source: :user
-  has_many :group_messages, class_name: 'Group::Message'
-  has_and_belongs_to_many :group_conversations, class_name: 'Group::Conversation'
-
+  
+  #validates :name, presence: true, length: { minimum: 4 }
+  #validates :password, presence: true, length: { minimum: 5 }
+  #validates :password_confirmation, presence: true, length: { minimum: 5 }
   
 
   def self.from_omniauth(auth)   
-	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-		user.email = auth.info.email
-		user.password = Devise.friendly_token[0,20]
-		user.name = auth.info.name
-        end 
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      user.name = auth.info.name
+    end 
   end 
 
   def email_required?

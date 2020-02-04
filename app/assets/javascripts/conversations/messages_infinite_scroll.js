@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load ajax:complete', function() {
+$(document).on('turbolinks:load ajax:complete', function() {
     var iScrollPos = 0;
     var isLoading = false;
     var currentLoadingIcon;
@@ -20,8 +20,9 @@ document.addEventListener('turbolinks:load ajax:complete', function() {
            //Scrolling Up
            if (iCurScrollPos < 300 && isLoading == false && $('.load-more-messages', this).length) {
                 // trigger link, which loads 10 more messages
-                $('.load-more-messages', this)[0].click();
                 isLoading = true;
+                $('.load-more-messages', this)[0].click();
+                
 
                 // select conversation window's loading icon and show it
                 currentLoadingIcon = $('.loading-more-messages', this);

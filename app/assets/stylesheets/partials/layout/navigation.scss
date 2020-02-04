@@ -1,7 +1,10 @@
-nav {
+body {
+	margin-top: 50px;
+}
 
+nav {
   .col-sm-5, .col-sm-7 {
-  padding: 0;
+    padding: 0;
   }
   .navbar-header {
     width: 100%;
@@ -15,6 +18,28 @@ nav {
       opacity: 0.8;
     }
   }
+}
+
+.navbar-default, .navbar-toggle:focus, .collapsed, button.navbar-toggle {
+  background: $navbarColor !important;
+	border: none;
+	a {
+	  color: white !important;
+	}
+}
+
+.navbar-toggle, .navbar-collapse {
+	border-color: $navbarColor !important;
+	box-shadow: none;
+}
+
+.navbar-brand {
+	margin: 0 0 0 10px !important;
+}
+
+.brand-mobile {
+  font-size: 20px;
+  font-size: 2.0rem;
 }
 
 .pc-menu {
@@ -58,25 +83,6 @@ nav {
 .dropdown-menu a:hover {
   color: black !important;
   background: white !important;
-}
-
-
-.navbar-default, .navbar-toggle:focus, .collapsed, button.navbar-toggle {
-  background: $navbarColor !important;
-  border: none;
-  a {
-    color: white !important;
-  }
-}
-
-body {
- margin-top: 50px;
-}
-
-
-.brand-mobile {
-  font-size: 20px;
-  font-size: 2.0rem;
 }
 
 .navigation-items {

@@ -7,7 +7,6 @@ $(document).on('turbolinks:load ajax:complete', function() {
         $('.load-more-messages', this)[0].click();
         $('.conversation .messages-list .loading-more-messages').hide();
     }
-});
 
 // if the messenger is opened on a smaller screen device
 // show the messenger's version for mobile devices
@@ -23,3 +22,7 @@ $(".messenger .col-sm-2 ul").on( "click", "a", function() {
         $('.messenger').css('height', '100vh');
     }
 });
+
+});
+
+

@@ -8,7 +8,6 @@ RSpec.feature "window", :type => :feature do
     visit root_path
     find('#conversations-menu .dropdown-toggle').trigger('click')
     find('#conversations-menu li a').click
-    expect(page).to have_selector('.conversation-window')
   end
   before(:each) do 
     conversation
@@ -17,12 +16,13 @@ RSpec.feature "window", :type => :feature do
 
   scenario 'user opens a conversation', js: true do
     open_window
+    expect(page).to have_selector('.conversation-window')
   end
 
   scenario 'user closes a conversation', js: true do 
     open_window
-    find('.conversation-window .close-conversation').click
-    expect(page).not_to have_selector('.conversation-window')
+    find('.conversation-window .close-conversation').trigger('click')
+    expect(page.has_no_selector?('.conversation-window')).to eq true
   end
 
   scenario 'user sends a message', js: true do 
@@ -38,4 +38,5 @@ RSpec.feature "window", :type => :feature do
     find('.conversation-window .conversation-heading').click
     expect(page).not_to have_selector('.conversation-window .messages-list')
   end
+  
 end

@@ -16,7 +16,7 @@ module PostsHelper
   end
   
   def no_posts_partial_path
-  @posts.empty? ? 'posts/branch/no_posts' : 'shared/empty_partial'
+    posts.empty? ? 'posts/branch/no_posts' : 'shared/empty_partial'
   end
 
   def post_format_partial_path
@@ -44,18 +44,18 @@ module PostsHelper
   end
 
   def contact_user_partial_path
-  if user_signed_in?
-    @post.user.id != current_user.id ? 'posts/show/contact_user' : 'shared/empty_partial'
-  else 
-    'posts/show/login_required'
-  end
+    if user_signed_in?
+      @post.user.id != current_user.id ? 'posts/show/contact_user' : 'shared/empty_partial'
+    else 
+      'posts/show/login_required'
+    end
   end
 
   def leave_message_partial_path
-  if @message_has_been_sent
-    'posts/show/contact_user/already_in_touch'
-  else
-    'posts/show/contact_user/message_form'
-  end
+    if @message_has_been_sent
+      'posts/show/contact_user/already_in_touch'
+    else
+      'posts/show/contact_user/message_form'
+    end
   end
 end
