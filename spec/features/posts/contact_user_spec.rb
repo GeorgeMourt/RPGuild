@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Contact user", :type => :feature do
 	let(:user) { create(:user) }
-	let(:category) { create(:category, name: 'Arts', branch: 'hobby') }
+	let(:category) { create(:category, name: 'Arts', branch: 'general_discussion') }
 	let(:post) { create(:post, category_id: category.id) }
 
   context 'logged in user' do

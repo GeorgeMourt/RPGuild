@@ -8,15 +8,15 @@ class PostsController < ApplicationController
     end
   end
 
-  def hobby
+  def general_discussion
     posts_for_branch(params[:action])
   end
 
-  def study
+  def looking_for_players
     posts_for_branch(params[:action])
   end
 
-  def team
+  def looking_for_gm
     posts_for_branch(params[:action])
   end
 

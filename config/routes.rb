@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     collection do
-      get 'hobby'
-      get 'study'
-      get 'team'
+      get 'general_discussion'
+      get 'looking_for_players'
+      get 'looking_for_gm'
     end
   end
 

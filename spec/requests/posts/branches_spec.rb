@@ -2,19 +2,19 @@ require 'rails_helper'
 RSpec.describe "branches", :type => :request do
 
   shared_examples 'render_templates' do
-    it 'renders a hobby template' do
-      get '/posts/hobby'
-      expect(response).to render_template(:hobby)
+    it 'renders a general_discussion template' do
+      get '/posts/general_discussion'
+      expect(response).to render_template(:general_discussion)
     end
 
-    it 'renders a study template' do
-      get '/posts/study'
-      expect(response).to render_template(:study)
+    it 'renders a looking_for_players template' do
+      get '/posts/looking_for_players'
+      expect(response).to render_template(:looking_for_players)
     end
 
-    it 'renders a team template' do
-      get '/posts/team'
-      expect(response).to render_template(:team)
+    it 'renders a looking_for_gm template' do
+      get '/posts/looking_for_gm'
+      expect(response).to render_template(:looking_for_gm)
     end
   end
 

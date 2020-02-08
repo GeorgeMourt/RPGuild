@@ -22,22 +22,20 @@ end
 
 
 def seed_categories
-  hobby = ['Arts', 'Crafts', 'Sports', 'Sciences', 'Collecting', 'Reading', 'Other']
-  study = ['Arts and Humanities', 'Physical Science and Engineering', 'Math and Logic',
-          'Computer Science', 'Data Science', 'Economics and Finance', 'Business',
-          'Social Sciences', 'Language', 'Other']
-  team = ['Study', 'Development', 'Arts and Hobby', 'Other']
+  general_discussion = ['Dungeons and Dragons', 'Pathfinder', 'Shadowrun', 'Cyberpunk 2020', 'Call of Cthulhu', 'Ryuutama', 'Blades in the Dark', 'Dungeon World', 'City of Mist', 'FATE', 'Deadlands Reloaded', 'The Witcher roleplaying game', 'Doctor Who the roleplaying game', 'A Song of Fire and Ice', 'Hot War']
+  looking_for_players = ['Dungeons and Dragons', 'Pathfinder', 'Shadowrun', 'Cyberpunk 2020', 'Call of Cthulhu', 'Ryuutama', 'Blades in the Dark', 'Dungeon World', 'City of Mist', 'FATE', 'Deadlands Reloaded', 'The Witcher roleplaying game', 'Doctor Who the roleplaying game', 'A Song of Fire and Ice', 'Hot War']
+  looking_for_gm = ['Dungeons and Dragons', 'Pathfinder', 'Shadowrun', 'Cyberpunk 2020', 'Call of Cthulhu', 'Ryuutama', 'Blades in the Dark', 'Dungeon World', 'City of Mist', 'FATE', 'Deadlands Reloaded', 'The Witcher roleplaying game', 'Doctor Who the roleplaying game', 'A Song of Fire and Ice', 'Hot War']
 
-  hobby.each do |name|
-    Category.create(branch: 'hobby', name: name)
+  general_discussion.each do |name|
+    Category.create(branch: 'general_discussion', name: name)
   end
 
-  study.each do |name|
-    Category.create(branch: 'study', name: name)
+  looking_for_players.each do |name|
+    Category.create(branch: 'looking_for_players', name: name)
   end
 
-  team.each do |name|
-    Category.create(branch: 'team', name: name)
+  looking_for_gm.each do |name|
+    Category.create(branch: 'looking_for_gm', name: name)
   end
 end
 
