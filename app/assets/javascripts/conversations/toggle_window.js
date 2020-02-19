@@ -11,12 +11,11 @@ $(document).on('turbolinks:load', function() {
 
         panel_body.toggle(100, function() {
             var messages_visible = $('ul', this).has('li').length;
-                    
             // if window is collapsed, hide conversation menu options
             if ( panel_body.css('display') == 'none' ) {
                 panel.find('.add-people-to-chat,\
-                    .add-user-to-contacts,\
-                    .contact-request-sent').hide();
+                            .add-user-to-contacts,\
+                            .contact-request-sent').hide();
                 conversation_heading = panel.find('.conversation-heading');
                 conversation_heading.css('width', '360px');
 

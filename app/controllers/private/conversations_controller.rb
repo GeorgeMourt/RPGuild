@@ -31,11 +31,11 @@ class Private::ConversationsController < ApplicationController
   end
 
   def open
-  @conversation = Private::Conversation.find(params[:id])
-  add_to_conversations unless already_added?
-  respond_to do |format|
-    format.js { render partial: 'private/conversations/open' }
-  end
+    @conversation = Private::Conversation.find(params[:id])
+    add_to_conversations unless already_added?
+    respond_to do |format|
+      format.js { render partial: 'private/conversations/open' }
+    end
   end
 
   private

@@ -18,23 +18,22 @@ class Group::ConversationsController < ApplicationController
   end
 
   def open
-  @conversation = Group::Conversation.find(params[:id])
-  add_to_conversations unless already_added?
-  respond_to do |format|
-    format.js { render partial: 'group/conversations/open' }
-  end
+    @conversation = Group::Conversation.find(params[:id])
+    add_to_conversations unless already_added?
+    respond_to do |format|
+      format.js { render partial: 'group/conversations/open' }
+    end
   end
 
   def close
-  @conversation = Group::Conversation.find(params[:id])
+    @conversation = Group::Conversation.find(params[:id])
 
-  session[:group_conversations].delete(@conversation.id)
+    session[:group_conversations].delete(@conversation.id)
 
-  respond_to do |format|
-    format.js
+    respond_to do |format|
+      format.js
+    end
   end
-  end
-
 
   private
 

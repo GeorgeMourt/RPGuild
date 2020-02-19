@@ -6,7 +6,7 @@ module Private::ConversationsHelper
     conversation.opposed_user(current_user)
   end
 
-  # if the conversation has unshown messages, show a button to get them
+  # if the conversation has unshown messages, create a link to get them
   def load_private_messages(conversation)
     if conversation.messages.count > 0 
       'private/conversations/conversation/messages_list/link_to_previous_messages'
@@ -50,7 +50,6 @@ module Private::ConversationsHelper
       'shared/empty_partial'
     end
   end
-
 
   # decide which conversation heading style to show
   def conv_heading_class(contact)
