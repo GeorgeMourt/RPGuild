@@ -12,18 +12,16 @@ $(document).on('turbolinks:load ajax:complete', function() {
     });
 
     $('.messages-list', this).scroll(function () {
-        var iCurScrollPos = $(this).scrollTop();
-        
+        var iCurScrollPos = $(this).scrollTop();   
         if (iCurScrollPos > iScrollPos) {
             //Scrolling Down
         } else {
            //Scrolling Up
            if (iCurScrollPos < 300 && isLoading == false && $('.load-more-messages', this).length) {
-                // trigger link, which loads 10 more messages
                 isLoading = true;
+                // trigger link, which loads 10 more messages
                 $('.load-more-messages', this)[0].click();
                 
-
                 // select conversation window's loading icon and show it
                 currentLoadingIcon = $('.loading-more-messages', this);
                 currentLoadingIcon.show();
